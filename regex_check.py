@@ -22,7 +22,7 @@ print(expr)
 expr = re.sub(re.compile("%\w{4}"), " ", url)
 print(expr)
 print(unquote(unquote(url)))
-print(os.listdir())
+print(os.listdir("Songs"))
 
 
 file.close()

@@ -34,12 +34,12 @@ with requests.Session() as req:
                 # filename = filename.replace("%2520", " ").replace("%20", " ").replace("%25", " ").replace("%C3", " ").replace("%A0", " ").replace("%25C3", "").replace("%2528", "").replace("%2529", "")
                 print(filename)
                 # print(f"URL: {a['href']}")
-                if filename in os.listdir():
+                if filename in os.listdir("Songs"):
                     continue
                 mp3file = req.get(a["href"])
                 # print(mp3file.status_code)
                 if (mp3file.status_code == 200):
-                    with open(filename, "wb") as f:
+                    with open(f"Songs/{filename}", "wb") as f:
                         f.write(mp3file.content)
                 else:
                     print(f"Unable to download {filename}")
